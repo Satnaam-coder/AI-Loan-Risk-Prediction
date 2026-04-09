@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💳 AI Loan Risk Prediction</h1>
+
+<form action="/predict" method="POST">
+
+<div class="form-grid">
+
+<input type="number" name="income" placeholder="Income">
+<input type="number" name="credit" placeholder="Loan Amount">
+
+<input type="number" name="annuity" placeholder="Annuity">
+<input type="number" name="goods_price" placeholder="Goods Price">
+
+<input type="number" name="days_employed" placeholder="Days Employed">
+<input type="number" name="days_birth" placeholder="Age (days)">
+
+<input type="number" name="family_members" placeholder="Family Members">
+
+<select name="gender">
+<option>Gender</option>
+<option value="1">Male</option>
+<option value="0">Female</option>
+</select>
+
+<select name="car">
+<option>Car</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="realty">
+<option>House</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<button class="full" type="submit">Predict 🚀</button>
+
+</div>
+
+</form>
+
+{% if prediction_text %}
+<div class="result">
+    <h3>{{ prediction_text }}</h3>
+</div>
+{% endif %}
+
+<br>
+<a href="/history">📊 History</a>  |
+<a href="/dashboard">📈 Dashboard</a>  |
+<a href="/logout"> Logout</a>
+
+</div>
+
+</body>
+</html>

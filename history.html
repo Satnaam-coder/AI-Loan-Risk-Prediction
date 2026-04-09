@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; }
+        table { border-collapse: collapse; width: 80%; margin: auto; }
+        th, td { padding: 10px; text-align: center; }
+        th { background: #333; color: white; }
+        tr:nth-child(even) { background: #ddd; }
+
+        .high { color: red; font-weight: bold; }
+        .medium { color: orange; font-weight: bold; }
+        .low { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">Loan History</h2>
+
+<table>
+<tr>
+    <th>Income</th>
+    <th>Credit</th>
+    <th>Annuity</th>
+    <th>Risk</th>
+    <th>Time</th>
+</tr>
+
+{% for row in data %}
+<tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+
+    <td class="
+        {% if 'High' in row[10] %}high
+        {% elif 'Medium' in row[10] %}medium
+        {% else %}low
+        {% endif %}
+    ">
+        {{ row[10] }}
+    </td>
+
+    <td>{{ row[11] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

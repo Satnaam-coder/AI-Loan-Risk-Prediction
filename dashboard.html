@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+<h2 class="dash-title">📊 Loan Analytics Dashboard</h2>
+
+<div class="stats">
+    <div class="card total">
+        <h3>Total</h3>
+        <p>{{ total }}</p>
+    </div>
+
+    <div class="card low">
+        <h3>Low Risk</h3>
+        <p>{{ low }}</p>
+    </div>
+
+    <div class="card medium">
+        <h3>Medium Risk</h3>
+        <p>{{ medium }}</p>
+    </div>
+
+    <div class="card high">
+        <h3>High Risk</h3>
+        <p>{{ high }}</p>
+    </div>
+</div>
+
+<br>
+
+<table class="dash-table">
+    <tr>
+        <th>Income</th>
+        <th>Loan Amount</th>
+        <th>Result</th>
+    </tr>
+
+    {% for row in data %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[-1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/download"><button>Download CSV</button></a>
+
+<br>
+
+<div class="back-btn">
+    <a href="/home">🏠 Home</a>
+</div>
+
+</div>
+
+</body>
+</html>
